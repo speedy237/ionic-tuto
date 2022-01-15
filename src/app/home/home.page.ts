@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { Product } from '../classes/product';
+import { ProductServiceService } from '../services/product-service.service';
 
 @Component({
   selector: 'app-home',
@@ -6,7 +8,14 @@ import { Component } from '@angular/core';
   styleUrls: ['home.page.scss'],
 })
 export class HomePage {
+  public products:Array<Product>;
 
-  constructor() {}
+  constructor(private productService:ProductServiceService) {
+  }
+
+  ionViewWillEnter(){
+    this.products = this.productService.getProducts();
+    //console.log(this.products);
+  }
 
 }

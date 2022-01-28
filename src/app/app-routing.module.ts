@@ -16,7 +16,7 @@ const routes: Routes = [
     loadChildren: () => import('./detail-product/detail-product.module').then( m => m.DetailProductPageModule)
   },
   {
-    path: 'update-product/:reference',
+    path: 'update-product/:id',
     loadChildren: () => import('./update-product/update-product.module').then( m => m.UpdateProductPageModule)
   },
   {
@@ -27,6 +27,11 @@ const routes: Routes = [
     path: 'meteo',
     loadChildren: () => import('./meteo/meteo.module').then( m => m.MeteoPageModule)
   },
+  {
+    path: 'gps',
+    loadChildren: () => import('./gps/gps.module').then( m => m.GpsPageModule)
+  },
+
 ];
 
 @NgModule({

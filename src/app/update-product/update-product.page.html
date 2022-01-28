@@ -1,9 +1,36 @@
 <ion-header>
-  <ion-toolbar>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-menu-button autoHide="false"></ion-menu-button>
+    </ion-buttons>
     <ion-title>update-product</ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
+<ion-content class="ion-padding">
+  <form [formGroup]="editForm" (ngSubmit)="onSubmit()">
+    <ion-item>
+      <ion-input formControlName="name" type="text" placeholder="Nom"  required></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-input formControlName="reference" type="text"  placeholder="Reference" required>
+      </ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-input formControlName="qte" type="number"  placeholder="Quantité" required>
+      </ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-input formControlName="description" type="text"  placeholder="Description" required>
+      </ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-input formControlName="pu" type="number" placeholder="PU" required>
+      </ion-input>
+    </ion-item>
+
+    <ion-button class="ion-margin-top" type="submit" expand="block" color="success">Update</ion-button>
+  </form>
 
 </ion-content>

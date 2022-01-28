@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Product } from '../classes/product';
+import { AngularFirestore } from '@angular/fire/compat/firestore';
 
 @Injectable({
   providedIn: 'root'
@@ -8,7 +9,6 @@ export class ProductServiceService {
   p = new Product('Tomate','ax0910',90,'Produit consommable 200g',500);
 
   private products:Array<Product> = [];
-
   constructor() { 
     this.products.push(this.p);
   }

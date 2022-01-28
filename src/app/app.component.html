@@ -1,3 +1,32 @@
 <ion-app>
   <ion-router-outlet></ion-router-outlet>
+  <ion-split-pane contentId="main-content">
+    <ion-menu contentId="main-content" type="overlay">
+
+      <ion-content color="primary">
+        <ion-list id="inbox-list"  color="primary">
+          <ion-list-header>
+            <ion-chip>
+              <ion-avatar>
+                <img src="https://gravatar.com/avatar/dba6bae8c566f9d4041fb9cd9ada7741?d=identicon&f=y">
+              </ion-avatar>
+              <ion-label>Jordan YIYUEME</ion-label>
+              <ion-note color="primary">joryiyueme@gmail.com</ion-note>
+            </ion-chip>
+            <ion-label class="ion-padding-start"></ion-label>
+          </ion-list-header>
+          
+
+          <ion-menu-toggle auto-hide="false" *ngFor="let pages of Pages; let i = index">
+            <ion-item (click)="activeIndex = i" routerDirection="root" [routerLink]="[pages.url]" lines="none"
+              detail="false" [class.selected]="activeIndex == i">
+              <ion-icon slot="start" [ios]="pages.icon + '-outline'" [md]="pages.icon + '-sharp'"></ion-icon>
+              <ion-label>{{ pages.title }}</ion-label>
+            </ion-item>
+          </ion-menu-toggle>
+        </ion-list>
+      </ion-content>
+    </ion-menu>
+    <ion-router-outlet id="main-content"></ion-router-outlet>
+  </ion-split-pane>
 </ion-app>
